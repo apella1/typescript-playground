@@ -11,6 +11,11 @@ console.log(c * b);
 console.log(b * a);
 console.log(a - b);
 
+
+// void  is for functions that just have side effects
+// otherwise for return functions the expected return data type is provided or inferred
+
+
 function logMessage(message: string | number): void {
     console.log(message);
 }
@@ -61,14 +66,119 @@ let myObject: object
 myObject = []
 console.log(typeof myObject);
 
+type School = {
+    name: string,
+    age: number
+}
 
-const school = {
+const mySchool: School = {
     name: "Lord of The Clouds",
     age: 77
 }
 
 
-school.name = "The VR Academy"
-school.age = 30
+mySchool.name = "The VR Academy"
+mySchool.age = 30
 
-console.log(school, typeof school);
+console.log(mySchool, typeof mySchool);
+
+
+const nameSchool = (school: School) => {
+    return `${school.name} is an awesome school!`
+}
+
+
+console.log(nameSchool(mySchool))
+
+// Interfaces
+
+interface Game {
+    name?: string,
+    type: string,
+    intensity: string,
+    numberOfPlayers: number,
+    stillActive: boolean,
+}
+
+
+let football: Game = {
+    name: "Football",
+    type: "Outdoor",
+    intensity: "Demanding",
+    numberOfPlayers: 11,
+    stillActive: true
+}
+
+console.log(football);
+
+let basketball = { ...football }
+basketball.name = "Basketball"
+basketball.numberOfPlayers = 5
+
+console.log(basketball);
+console.log(football);
+
+function gameSummary(game: Game) {
+    if (game.name) {
+        return `${game.name} is an ${game.type.toLowerCase()} game.`
+    }
+    return `This must be an interesting game!`
+}
+
+console.log(gameSummary(football));
+console.log(gameSummary(basketball));
+
+
+let rugby: Game = {
+    type: "Outdoor",
+    intensity: "Intense",
+    numberOfPlayers: 14,
+    stillActive: true
+}
+
+console.log(gameSummary(rugby));
+
+
+
+// Enums 
+
+enum Grade {
+    R = 39,
+    D = 49,
+    C = 59,
+    B = 69,
+    A,
+}
+
+
+console.log(Grade.A);
+
+
+// Type Aliases
+// ! interfaces cannot be used with primitives or unions as with types
+
+type maintainability = boolean
+type booleanOrString = boolean | string
+type strOrNumArr = (string | number)[]
+
+let isCool: booleanOrString = true
+let options: strOrNumArr = [2, "Run to the market", "Complete a course"]
+
+
+// using type aliases within a type
+type Tool = {
+    maintainable: maintainability,
+    isUserFriendly: booleanOrString,
+    uses: strOrNumArr
+}
+
+
+// Literal types 
+let myScore: "Score"
+
+
+// only the specified values are assignable to userName
+let userName: 'Apella' | 'John' | 'Carmack'
+
+userName = "Apella"
+// * the benefit of using literal types is to keep your code DRYier and optimize for productivity
