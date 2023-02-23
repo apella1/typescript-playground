@@ -24,6 +24,8 @@ let teams = [];
 let players = ["Ali", "Musa", "Chad"];
 let ideas = ["Eat", 88, false];
 let coolNums = [8, 9, 3];
+ideas.push("Practice Codewars");
+console.log(ideas);
 console.log(players);
 players[0] = "Edwin"; // the item at the first index is changed(mutability)
 players.push("Catie");
@@ -35,7 +37,7 @@ ideas[ideas.length - 1] = "Thirty";
 console.log(ideas);
 // Tuples 
 let agency = ["Winners", 1, true];
-// myAgency canno be assigned to the tuple agency since there is the possibility of the union array accepting less items
+// myAgency cannot be assigned to the tuple agency since there is the possibility of the union array accepting less items
 let myAgency = ["Could be Losers", 3, false];
 // Objects
 let myObject;
@@ -80,7 +82,7 @@ let rugby = {
     stillActive: true
 };
 console.log(gameSummary(rugby));
-// Enums 
+// Enums - enumerated types at runtime 
 var Grade;
 (function (Grade) {
     Grade[Grade["R"] = 39] = "R";
@@ -89,9 +91,10 @@ var Grade;
     Grade[Grade["B"] = 69] = "B";
     Grade[Grade["A"] = 70] = "A";
 })(Grade || (Grade = {}));
-console.log(Grade.A);
+console.log(Grade.A); // 70
 let isCool = true;
 let options = [2, "Run to the market", "Complete a course"];
+let tiredNow = "yes";
 // Literal types 
 let myScore;
 // only the specified values are assignable to userName
@@ -106,4 +109,3 @@ const getSum = (k, l) => {
     return k + l;
 };
 logMessage(getSum(Infinity, Infinity));
-// * Functions: optional parameters and default values
