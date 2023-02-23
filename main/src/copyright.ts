@@ -1,5 +1,5 @@
-const year = document.getElementById('year') as HTMLElement;
-const thisYear: number = new Date().getFullYear();
-year.textContent = (thisYear as unknown) as string;
-
+const year = document.getElementById('year') as HTMLSpanElement;
+const thisYear: string = new Date().getFullYear().toString()
+year.setAttribute("datetime", thisYear)
+year.textContent = thisYear
 // 02:07:00
