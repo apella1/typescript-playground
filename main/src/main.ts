@@ -1,4 +1,4 @@
-let username = "Moses"
+let username: string = "Moses"
 console.log(username);
 
 
@@ -16,7 +16,7 @@ console.log(a - b);
 // otherwise for return functions the expected return data type is provided or inferred
 
 
-function logMessage(message: string | number): void {
+function logMessage(message: any): void {
     console.log(message);
 }
 
@@ -36,6 +36,8 @@ let players = ["Ali", "Musa", "Chad"]
 let ideas = ["Eat", 88, false]
 let coolNums = [8, 9, 3]
 
+ideas.push("Practice Codewars")
+console.log(ideas)
 
 console.log(players);
 players[0] = "Edwin"  // the item at the first index is changed(mutability)
@@ -55,9 +57,8 @@ console.log(ideas);
 // Tuples 
 let agency: [string, number, boolean] = ["Winners", 1, true]
 
-// myAgency canno be assigned to the tuple agency since there is the possibility of the union array accepting less items
+// myAgency cannot be assigned to the tuple agency since there is the possibility of the union array accepting less items
 let myAgency = ["Could be Losers", 3, false]
-
 
 
 // Objects
@@ -140,7 +141,7 @@ console.log(gameSummary(rugby));
 
 
 
-// Enums 
+// Enums - enumerated types at runtime 
 
 enum Grade {
     R = 39,
@@ -151,7 +152,7 @@ enum Grade {
 }
 
 
-console.log(Grade.A);
+console.log(Grade.A); // 70
 
 
 // Type Aliases
@@ -163,6 +164,7 @@ type strOrNumArr = (string | number)[]
 
 let isCool: booleanOrString = true
 let options: strOrNumArr = [2, "Run to the market", "Complete a course"]
+let tiredNow: booleanOrString = "yes"
 
 
 // using type aliases within a type
@@ -182,3 +184,24 @@ let userName: 'Apella' | 'John' | 'Carmack'
 
 userName = "Apella"
 // * the benefit of using literal types is to keep your code DRYier and optimize for productivity
+
+type MathFunc = (a: number, b: number) => number
+
+const multiply: MathFunc = (h, g) => {
+    return h * g
+}
+
+console.log(multiply(6, 8));
+logMessage(multiply(3, 6))
+
+
+interface mathFunction {
+    (a: number, b: number): number
+}
+
+
+const getSum: mathFunction = (k, l) => {
+    return k + l
+}
+
+logMessage(getSum(Infinity, Infinity))

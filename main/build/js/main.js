@@ -97,4 +97,13 @@ let myScore;
 // only the specified values are assignable to userName
 let userName;
 userName = "Apella";
-// * the benefit of using literal types is to keep your code DRYier and optimize for productivity
+const multiply = (h, g) => {
+    return h * g;
+};
+console.log(multiply(6, 8));
+logMessage(multiply(3, 6));
+const getSum = (k, l) => {
+    return k + l;
+};
+logMessage(getSum(Infinity, Infinity));
+// * Functions: optional parameters and default values
