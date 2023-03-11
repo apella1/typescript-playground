@@ -74,3 +74,5 @@ class Novel implements Book {
 
 const Davinci = new Novel("Davinci Code", 34, "Entertainment")
 console.log(Davinci);
+
+// ! 02:24:00
