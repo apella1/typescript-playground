@@ -40,11 +40,15 @@ let ingredientsCopy = Array.from(ingredients)
 
 console.log(ingredientsCopy);
 ingredientsCopy[1].list = ["salt", "butter", "toast"]
+ingredientsCopy[0] = "Other noodles"
 console.log(ingredientsCopy);
 console.log(ingredients);
 
 
 // deep copies - the elements of the specific arrays do not share a reference to the same memory location
+// using JSON.stringify() method and parse() to create a deep copy if the array can be serialized
+// there's no way to create deep copies of objects that can't be serialized e.g functions with closures, Symbol
+// serialization is changing the array into format that can be transferred, say, over a network
 
 let ingredient_list_deepcopy = JSON.parse(JSON.stringify(ingredients))
 console.log(ingredient_list_deepcopy);
@@ -52,3 +56,18 @@ console.log(ingredient_list_deepcopy[1].list);
 ingredient_list_deepcopy[1].list = ["sand", "box", "heat"]
 console.log(ingredient_list_deepcopy[1].list);
 console.log(ingredients[1].list);
+
+
+// structureClone() method can also be used to create deep copies of objects that are serializable
+// supports circular reference (itself)
+
+const original = {
+    name: "John"
+}
+
+console.log(original);
+
+original.itself = original;
+const clone = structuredClone(original)
+console.assert(clone.name === original.name)
+console.log(clone);
