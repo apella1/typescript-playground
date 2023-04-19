@@ -5,7 +5,6 @@ console.log(4 / []);
 console.log(4 / 0);
 console.log(0 / 0);
 
-
 let a: number = 12;
 let b: number = 6;
 let c: number = 2;

@@ -71,3 +71,19 @@ const determineNumStr = (value: number | string): string => {
 
 console.log(determineNumStr(5));
 
+function flipExp(n: any) {
+  return n.flip();
+}
+
+let message = "Hello";
+
+const user = {
+  age: 76,
+  married: false,
+};
+
+function greet(person: string, date: Date) {
+  console.log(`Hello ${person}, today is ${date.toLocaleDateString()}`);
+}
+
+greet("Peter", new Date());
