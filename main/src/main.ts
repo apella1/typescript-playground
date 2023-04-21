@@ -1,7 +1,7 @@
 let username: string = "Moses";
 console.log(username);
 
-console.log(4 / []);
+// console.log(4 / []);
 console.log(4 / 0);
 console.log(0 / 0);
 
